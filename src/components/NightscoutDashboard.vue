@@ -68,8 +68,14 @@ export default {
                 return this.meanSgv;
             }
         },
+        currentEntry () {
+            return this.entriesByTimestamp[0] ? this.entriesByTimestamp[0] : null;
+        },
         currentSgv () {
-            return this.entriesByTimestamp[0] ? this.entriesByTimestamp[0].sgv : 0;
+            return this.currentEntry ? this.currentEntry.sgv : 0;
+        },
+        currentDirection () {
+            return this.currentEntry ? this.currentEntry.direction : '';
         },
         currentBgInSelectedUnits () {
             if (this.units === 'mmolL') {
@@ -77,6 +83,9 @@ export default {
             } else {
                 return this.currentSgv;
             }
+        },
+        currentDirectionArrow () {
+            return this.arrowForDirection(this.currentEntry.direction);
         }
     }
 };

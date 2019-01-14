@@ -1,0 +1,5 @@
+query Entries ($startTimestamp:String, $endTimestamp:String, $lastN:Int) {
+    entries {
+        ...Entry
+    }
+}

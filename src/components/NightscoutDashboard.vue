@@ -27,15 +27,21 @@ export default {
     },
     apollo: {
         entries: {
-            query: gql`query Entries($lastN: Int) {
+            query: gql`query Entries ($lastN: Int) {
                 entries(lastN: $lastN) {
                     _id,
                     sgv,
                     date,
                     dateString
                 }
-            }`
-        }
+            }`,
+            variables () {
+                return {
+                    lastN: this.numberOfEntriesToFetch
+                }
+            },
+        },
+
     },
     computed: {
         entriesByTimestamp () {

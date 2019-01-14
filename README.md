@@ -1,34 +1,3 @@
 # nightscout-graphql-frontend
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
-
-### Run your unit tests
-```
-yarn run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Toy companion project to [nightscout-graphql-server](https://github.com/ddamico/nightscout-graphql-server), just working on a little Vuejs-based client to present an interface roughly equivalent to the dashboard screen in Sugarmate (not affiliated!). Also not affiliated with Nightscout.

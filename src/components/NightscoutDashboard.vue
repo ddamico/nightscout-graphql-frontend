@@ -12,11 +12,13 @@
 <script>
 import gql from 'graphql-tag';
 import BGHelperMixin from '../mixins/BGHelperMixin';
+import CGMHelperMixin from '../mixins/CGMHelperMixin';
 
 export default {
     name: 'NightscoutDashboard',
     mixins: [
-        BGHelperMixin
+        BGHelperMixin,
+        CGMHelperMixin
     ],
     data: () => {
         return {

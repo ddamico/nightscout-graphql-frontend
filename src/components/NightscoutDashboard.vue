@@ -1,14 +1,9 @@
 <template>
     <div>
-        <div v-if="$apollo.loading">Fetching entries</div>
-        <!-- @TODO extract these into a single component -->
         <div class="dashboard-block current-bg">
-            <h2>Current BG</h2>
             {{ currentBgInSelectedUnits }}
-            <div v-if="currentDirection" class="direction">{{ currentDirectionArrow }}</div>
         </div>
         <div class="dashboard-block mean-bg">
-            <h2>Mean BG</h2>
             {{ meanBgInSelectedUnits }}
         </div>
     </div>
@@ -29,10 +24,7 @@ export default {
         return {
             entries: [],
             numberOfEntriesToFetch: 288,
-            units: 'mmolL',
-            rangeLower: 70,
-            rangeUpper: 180,
-            urgentLow: 54
+            units: 'mmolL'
         };
     },
     apollo: {
@@ -73,14 +65,8 @@ export default {
                 return this.meanSgv;
             }
         },
-        currentEntry () {
-            return this.entriesByTimestamp[0] ? this.entriesByTimestamp[0] : null;
-        },
         currentSgv () {
-            return this.currentEntry ? this.currentEntry.sgv : 0;
-        },
-        currentDirection () {
-            return this.currentEntry ? this.currentEntry.direction : '';
+            return this.entriesByTimestamp[0] ? this.entriesByTimestamp[0].sgv : 0;
         },
         currentBgInSelectedUnits () {
             if (this.units === 'mmolL') {
@@ -88,9 +74,6 @@ export default {
             } else {
                 return this.currentSgv;
             }
-        },
-        currentDirectionArrow () {
-            return this.arrowForDirection(this.currentEntry.direction);
         }
     }
 };

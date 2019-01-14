@@ -50,11 +50,10 @@ export default {
             variables () {
                 return {
                     lastN: this.numberOfEntriesToFetch
-                }
+                };
             },
             pollInterval: (1000 * 60)// every minute, for now
-        },
-
+        }
     },
     computed: {
         entriesByTimestamp () {

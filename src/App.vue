@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <nightscout-dashboard></nightscout-dashboard>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NightscoutDashboard from './components/NightscoutDashboard'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    NightscoutDashboard
   }
 }
 </script>

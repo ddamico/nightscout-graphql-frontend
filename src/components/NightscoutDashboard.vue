@@ -1,9 +1,14 @@
 <template>
     <div>
+        <div v-if="$apollo.loading">Fetching entries</div>
+        <!-- @TODO extract these into a single component -->
         <div class="dashboard-block current-bg">
+            <h2>Current BG</h2>
             {{ currentBgInSelectedUnits }}
+            <div v-if="currentDirection" class="direction">{{ currentDirectionArrow }}</div>
         </div>
         <div class="dashboard-block mean-bg">
+            <h2>Mean BG</h2>
             {{ meanBgInSelectedUnits }}
         </div>
     </div>

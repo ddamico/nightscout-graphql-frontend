@@ -32,7 +32,9 @@ export default {
                     _id,
                     sgv,
                     date,
-                    dateString
+                    dateString,
+                    direction,
+                    trend
                 }
             }`,
             variables () {

@@ -2,12 +2,12 @@
     <div>
         <div v-if="$apollo.loading">Fetching entries</div>
         <!-- @TODO extract these into a single component -->
-        <div class="dashboard-block current-bg">
+        <div class="dashboard-block" id="current-bg">
             <h2>Current BG</h2>
             {{ currentBgInSelectedUnits }}
             <div v-if="currentDirection" class="direction">{{ currentDirectionArrow }}</div>
         </div>
-        <div class="dashboard-block mean-bg">
+        <div class="dashboard-block" id="mean-bg">
             <h2>Mean BG</h2>
             {{ meanBgInSelectedUnits }}
         </div>

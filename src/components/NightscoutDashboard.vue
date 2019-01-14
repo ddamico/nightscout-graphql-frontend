@@ -58,7 +58,7 @@ export default {
     },
     computed: {
         entriesByTimestamp () {
-            return this.entries.slice().sort((a, b) => (a.date > b.date));
+            return this.entries.slice().sort((a, b) => (a.date > b.date ? -1 : 1));
         },
         meanSgv () {
             const totalSgv = this.entries.reduce((accumulator, entry) => accumulator + entry.sgv, 0);

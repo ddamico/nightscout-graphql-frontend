@@ -24,7 +24,10 @@ export default {
         return {
             entries: [],
             numberOfEntriesToFetch: 288,
-            units: 'mmolL'
+            units: 'mmolL',
+            rangeLower: 70,
+            rangeUpper: 180,
+            urgentLow: 54
         };
     },
     apollo: {

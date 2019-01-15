@@ -17,3 +17,4 @@
     * figure out how in apollo to do varying queryies to the same endpoint
 * add graph of all readings in context(?)
     * point graph in pure css (???)
+* stale data warning

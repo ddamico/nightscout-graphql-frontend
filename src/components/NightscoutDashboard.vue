@@ -1,7 +1,8 @@
 <template>
-    <div>
+    <div v-bind:class="containerClasses">
         <div v-if="$apollo.loading">Fetching entries</div>
         <!-- @TODO extract these into a single component -->
+        <div id="current-target-state">{{ this.currentTargetStateAsString }}</div>
         <div class="dashboard-block" id="current-bg">
             <h2>Current BG</h2>
             {{ currentBgInSelectedUnits }}
@@ -30,8 +31,8 @@ export default {
             entries: [],
             numberOfEntriesToFetch: 288,
             units: 'mmolL',
-            rangeLower: 70,
-            rangeUpper: 180,
+            rangeLower: 70,// 3.9 mmol/L
+            rangeUpper: 180,// 10 mmol/L
             urgentLow: 54
         };
     },
@@ -56,6 +57,32 @@ export default {
         }
     },
     computed: {
+        containerClasses () {
+            return {
+                'range-low': this.currentTargetState === -1,
+                'range-target': this.currentTargetState === 0,
+                'range-high': this.currentTargetState === 1
+            }
+        },
+        // returns -1 for low, 0 for in-target, 1 for high
+        currentTargetState () {
+            if (this.currentSgv <= this.rangeLower) {
+                return -1;
+            } else if (this.currentSgv >= this.rangeUpper) {
+                return 1;
+            } else {
+                return 0;
+            }
+        },
+        currentTargetStateAsString () {
+            const switchObj = {
+                [-1]: 'Low',
+                [0]: 'In Range',
+                [1]: 'High'
+            }
+
+            return switchObj[this.currentTargetState]
+        },
         entriesByTimestamp () {
             return this.entries.slice().sort((a, b) => (a.date > b.date ? -1 : 1));
         },
@@ -94,3 +121,15 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+.range-low {
+    background-color: red;
+}
+.range-target {
+    background-color: green;
+}
+.range-high {
+    background-color: yellow;
+}
+</style>

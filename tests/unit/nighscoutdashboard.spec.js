@@ -47,4 +47,15 @@ describe('NightscoutDashboard.vue', () => {
         expect(wrapper.find('#current-bg').exists()).toBe(true);
         expect(wrapper.find('#mean-bg').exists()).toBe(true);
     });
+
+    test('should contain in-target string', () => {
+        expect(wrapper.find('#current-target-state').exists()).toBe(true);
+        expect(wrapper.classes()).toContain('range-high');
+
+        const targetStatus = wrapper.vm.currentTargetState;
+        expect(targetStatus).toBe(1);
+
+        const targetStatusString = wrapper.vm.currentTargetStateAsString;
+        expect(targetStatusString.toLowerCase()).toBe('high');
+    });
 });

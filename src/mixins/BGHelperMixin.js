@@ -4,7 +4,7 @@ const BGHelperMixin = {
             return valueInMgdl * 0.0555;
         },
         mmolLToMgdl (valueInMmolL) {
-            return valueInMgdl * 18.0182;
+            return valueInMmolL * 18.0182;
         }
     }
 };
